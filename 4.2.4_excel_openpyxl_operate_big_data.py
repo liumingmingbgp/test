@@ -1,7 +1,13 @@
+from openpyxl import Workbook
 from openpyxl import load_workbook
-wb = load_workbook(filename='big.xlsx', read_only=True)
-ws = wb['big']
+from openpyxl.cell import WriteOnlyCell
+from openpyxl.comments import Comment
+from openpyxl.styles import Font
 
-for row in ws.rows:
-    for cell in row:
-        print(cell.value)
+wb = Workbook(write_only=True)
+ws = wb.create_sheet()
+cell = WriteOnlyCell(ws, value='write_only状态写入的内容')
+cell.font = Font(name='微软雅黑', size=36)
+cell.comment = Comment(text='这是一个批注', author='二两')
+ws.append([cell, 2.333, None])
+wb.save('write_only.xlsx')

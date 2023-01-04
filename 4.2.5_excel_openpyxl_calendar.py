@@ -1,6 +1,7 @@
 import openpyxl
 from openpyxl.styles import Alignment, PatternFill, Font
 from openpyxl.drawing.image import Image
+from openpyxl.utils import get_column_letter
 import calendar
 calendar.setfirstweekday(firstweekday=6)
 year = 2020
@@ -28,8 +29,8 @@ for i in range(1, 13):
         sheet.cell(row=8, column=k3).value = days[num]
         sheet.cell(row=8, column=k3).alignment = align
         sheet.cell(row=8, column=k3).font = Font(u'微软雅黑', size=11)
-        # c_char = get_column_letter(k3)
-        sheet.column_dimensions.width = 12
+        c_char = get_column_letter(k3)
+        sheet.column_dimensions[c_char].width = 12
         num += 1
     for k4 in range(8, 14):
         sheet.row_dimensions[k4].height = 30
@@ -38,4 +39,10 @@ for i in range(1, 13):
     newsize = (300, 200)
     img.width, img.height = newsize
     sheet.add_image(img, 'I2')
+    sheet.cell(row=3, column=1).value = f'{year}年'
+    sheet.cell(row=4, column=1).value = str(i)+'月'
+    sheet.cell(row=3, column=1).font = Font(u'微软雅黑', size=16, bold=True, color='FF7887')
+    sheet.cell(row=4, column=1).font = Font(u'微软雅黑', size=16, bold=True, color='FF7887')
+    sheet.cell(row=3, column=1).alignment = align
+    sheet.cell(row=4, column=1).alignment = align
 wb.save('calendar.xlsx')

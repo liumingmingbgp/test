@@ -1,6 +1,5 @@
 from docx import Document
 import pandas as pd
-import matplotlib.pyplot as plt
 
 student = pd.read_excel('student_score.xlsx')
 student.sort_values(by='SCORE', inplace=True, ascending=False)

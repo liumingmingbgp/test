@@ -1,0 +1,82 @@
+ 
+Chapter 1   CONTINUOUS RECORDING 
+Document : Continuous Recording.doc 
+ 
+TABLE OF CONTENTS 
+ 
+CHAPTER 1   CONTINUOUS RECORDING ..................................................................... 1 
+INTRODUCTION........................................................................................................................ 2 
+General overview ............................................................................................................... 2 
+Document overview ........................................................................................................... 2 
+INFORMATION ON THE CONTINUOUS RECORDING ................................................................... 2 
+SEGD used in continuous recording.................................................................................. 2 
+Time management in Continuous Recording..................................................................... 3 
+Advised procedure to go in continuous mode.................................................................... 3 
+Differences between Triggered mode and continuous mode............................................. 3 
+Navigation Triggered: ................................................................................................................ 3 
+Continuous Recording:............................................................................................................... 4 
+HOW TO SETUP YOUR SYSTEM................................................................................................. 6 
+Save your configuration ..................................................................................................... 6 
+Setup Continuous Mode..................................................................................................... 7 
+Setup your FTP........................................................................................................................... 7 
+Setup your seal428 ..................................................................................................................... 7 
+Some options in continuous mode¡­........................................................................................ 10 
+Come back in Navigation triggered mode........................................................................ 11 
+Setup the operation mode......................................................................................................... 11 
+Load your Setup ....................................................................................................................... 11 
+Customer Support Department 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1 
+mode continu step by step.doc 
+ 
+ 
+ 
+ 
+ 
+       last modification : 25/02/2011 
+ 
+Introduction 
+General overview 
+ 
+The option continuous recording is available in the Seal 428. here after is an 
+overview of how to setup this operation mode 
+ 
+Document overview 
+ 
+This chapter contains a step by step procedure to save a current configuration, go in 
+continuous mode, then come back in navigation triggered mode. 
+ 
+Information on the Continuous Recording 
+SEGD used in continuous recording 
+In continuous recording, the system is recording the data coming from the streamer 
+as soon as the ¡°go¡± button is activated in the operation window. The Seal 428 record 
+raw SEGD of 5s (not editable), and will use the header coming from the nav to rebuilt 
+the final SEGD. (see fig 1) 
+ 
+ 
+Fig 1 : link between raw SEGD, nav header and final SEGD 
+ 
+Customer Support Department 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2 
+mode continu step by step.doc 
+ 
+ 
+ 
+ 
+ 
+       last modification : 25/02/2011 

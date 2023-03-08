@@ -2,9 +2,17 @@ import pandas as pd
 import numpy as np
 
 
-dfs = pd.read_excel('NODE/box.xlsx',keep_default_na=False, sheet_name=[0], index_col=None)
-print(dfs)
-dfs.to_excel('1.xlsx', index=False)
+dfs = pd.read_excel('NODE/box.xlsx', sheet_name=None, header=None, keep_default_na=False)
+df=pd.concat(dfs, axis=1)
+df.to_excel('1.xlsx', sheet_name='new', header=None)
+# final_df = df.stack()
+# final_df.to_excel('1.xlsx', sheet_name='new', header=None)
+
+# SN = pd.read_excel('SN.xlsx', index_col='ID')
+
+# print(SN.dropna())
+    
+
 
 # df = pd.concat(dfs)
 # # print(df)

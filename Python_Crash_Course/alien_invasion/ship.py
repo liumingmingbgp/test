@@ -8,7 +8,7 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load('/images/ship.bmp')
         self.rect = self.image.get_rect()
 
         # 将飞船放在屏幕中央

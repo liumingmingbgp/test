@@ -15,3 +15,6 @@ class Seetings:
         self.bullet_allowed = 3
 
         self.alien_speed = 0.05
+        self.fleet_drop_speed = 10
+        # 1表示向右，-1表示向左
+        self.fleet_direction = 1  

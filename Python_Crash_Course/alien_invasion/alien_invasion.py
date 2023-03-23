@@ -66,17 +66,29 @@ class AlienInvasion:
     def _create_fleet(self):
         '''创建一群外星人'''
         # 创建一个外星人并计算一行可以容纳多少外星人 外星人的间距为外星人宽度
+        
         alien = Alien(self)
-        alien_width = alien.rect.width
+        alien_width, alien_height = alien.rect.size
         avilavle_space_x = self.settings.screen_width - (2 * alien_width)
         number_aliens_x = avilavle_space_x // (2 * alien_width)
+
+        # 计算屏幕可容纳多少行外星人
+        ship_height = self.ship.rect.height
+        avilavle_space_y = self.settings.screen_heigh - (3 * alien_height) - ship_height
+        number_rows = avilavle_space_y // (2 * alien_height)
         
-        # 创建第一行外星人
-        for alien_nubmer in range(number_aliens_x):
-            alien = Alien(self)
-            alien.x = alien_width + 2 * alien_width * alien_nubmer
-            alien.rect.x = alien.x
-            self.aliens.add(alien)        
+        # 创建外星人群
+        for row_number in range(number_rows):
+            for alien_nubmer in range(number_aliens_x):
+                self._create_alien(alien_nubmer, row_number)           
+
+    def _create_alien(self, alien_number, row_number):
+        alien = Alien(self)
+        alien_width, alien_height = alien.rect.size
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        alien.rect.y = alien_height + 2 * alien_height * row_number
+        self.aliens.add(alien)
 
     def _update_screen(self):
         '''更新屏幕上的图像并切换到新屏幕'''

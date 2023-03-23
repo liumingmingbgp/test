@@ -63,6 +63,10 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
+    def _update_aliens(self):
+        '''更新外星人的位置'''
+        self.aliens.update()
+
     def _create_fleet(self):
         '''创建一群外星人'''
         # 创建一个外星人并计算一行可以容纳多少外星人 外星人的间距为外星人宽度
@@ -105,7 +109,8 @@ class AlienInvasion:
         while True:
             self._chect_events()
             self.ship.update()            
-            self._update_bullets()            
+            self._update_bullets()
+            self._update_aliens()            
             self._update_screen()
 
 if __name__ == '__main__':

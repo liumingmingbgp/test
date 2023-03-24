@@ -5,7 +5,10 @@ class Seetings:
         self.screen_width = 900
         self.screen_heigh = 600
         self.bg_color = (230, 230,230)
+
+        # 飞船设置        
         self.ship_speed = 0.09
+        self.ship_limit = 3
 
         # 子弹设置
         self.bullet_speed = 0.07

@@ -4,6 +4,7 @@ class GameStats:
         '''初始化统计信息'''
         self.settings = ai_game.settings
         self.reset_stats()
+        self.game_active = True
 
     def reset_stats(self):
         self.ship_left = self.settings.ship_limit

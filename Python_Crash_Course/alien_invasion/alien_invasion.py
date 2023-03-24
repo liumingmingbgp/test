@@ -3,6 +3,7 @@ from time import sleep
 import pygame
 from settings import Seetings
 from game_stats import GameStats
+from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -26,6 +27,9 @@ class AlienInvasion:
 
         self._create_fleet()
 
+        # 创建按钮实例
+        self.play_button = Button(self, 'PLAY')
+
     def _chect_events(self):
         '''响应按键和鼠标事件'''
         for event in pygame.event.get():
@@ -35,6 +39,27 @@ class AlienInvasion:
                 self._check_key_down_events(event)
             elif event.type == pygame.KEYUP:
                 self._check_key_up_events(event)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                self._check_play_button(mouse_pos)
+
+    def _check_play_button(self, mouse_pos):
+        '''在玩家单击PLAY按钮时开始游戏'''
+        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+        if button_clicked and not self.stats.game_active:
+            self.stats.reset_stats()
+            self.stats.game_active = True
+
+            # 清空剩余子弹和外星人
+            self.aliens.empty()
+            self.bullets.empty()
+
+            # 创建新的一群外星人并让飞船居中
+            self._create_fleet()
+            self.ship.center_ship()
+
+            # 隐藏鼠标
+            pygame.mouse.set_visible(False)
 
     def _check_key_down_events(self, event):
         '''响应按键'''
@@ -115,6 +140,7 @@ class AlienInvasion:
             sleep(1)
         else:
             self.stats.game_active = False
+            pygame.mouse.set_visible(True)
 
     def _create_fleet(self):
         '''创建一群外星人'''
@@ -163,6 +189,10 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
+
+        # 如果游戏处于非活动状态就绘制PLAY按钮
+        if not self.stats.game_active:
+            self.play_button.draw_button()
             
         pygame.display.flip()
 
@@ -170,7 +200,7 @@ class AlienInvasion:
         '''开始游戏的主循环'''
         while True:
             self._chect_events()
-            
+
             if self.stats.game_active:
                 self.ship.update()            
                 self._update_bullets()

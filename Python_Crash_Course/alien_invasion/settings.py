@@ -8,7 +8,7 @@ class Seetings:
 
         # 飞船设置        
         self.ship_speed = 0.09
-        self.ship_limit = 3
+        self.ship_limit = 2
 
         # 子弹设置
         self.bullet_speed = 0.07
@@ -18,6 +18,6 @@ class Seetings:
         self.bullet_allowed = 3
 
         self.alien_speed = 0.05
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 50
         # 1表示向右，-1表示向左
         self.fleet_direction = 1  

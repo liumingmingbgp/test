@@ -31,6 +31,9 @@ class Seetings:
         # 1表示向右，-1表示向左
         self.fleet_direction = 1
 
+        # 计分
+        self.alien_point = 50 
+
     def increase_speed(self):
         '''加快速度'''
         self.ship_speed *= self.speedup_scale

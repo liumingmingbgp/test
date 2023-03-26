@@ -55,6 +55,7 @@ class AlienInvasion:
             self.stats.game_active = True
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships()
 
             # 清空剩余子弹和外星人
             self.aliens.empty()
@@ -142,8 +143,9 @@ class AlienInvasion:
     def _ship_hit(self):
         '''响应飞船被外星人撞到'''
         if self.stats.ship_left > 0:
-            # 飞船数量减1
+            # 飞船数量减1并更新显示
             self.stats.ship_left -= 1
+            self.sb.prep_ships()
             # 清空余下的外星人和子弹
             self.aliens.empty()
             self.bullets.empty()

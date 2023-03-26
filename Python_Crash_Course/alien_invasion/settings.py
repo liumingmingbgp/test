@@ -20,6 +20,8 @@ class Seetings:
         
         # 游戏速度的增加量
         self.speedup_scale =1.1
+        # 外星人分数的提高速度
+        self.score_scale =1.5
 
         self.initialize_dynamic_settings()  
 
@@ -39,3 +41,4 @@ class Seetings:
         self.ship_speed *= self.speedup_scale
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
+        self.alien_point *= int(self.alien_point * self.score_scale)

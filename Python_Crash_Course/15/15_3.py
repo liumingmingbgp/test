@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 from random_walk import RandomWalk
 
 while True:
-    rw = RandomWalk()
+    rw = RandomWalk(5000)
     rw.fill_walk()
     plt.style.use('classic')
     fig, ax = plt.subplots()
     point_number = range(rw.number_points)
-    ax.scatter(rw.x_values, rw.y_values, c= point_number, cmap=plt.cm.Blues, s=15, edgecolors='none')
+    ax.plot(rw.x_values, rw.y_values, linewidth=1)
 
     # 突出起点和终点
     ax.scatter(0,0, c='green', edgecolors='none', s=100)
